@@ -1,0 +1,986 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>TP.tests.TestsUnitaires API documentation</title>
+<meta name="description" content="Module containing unit tests for triangulation and binary conversion.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>TP.tests.TestsUnitaires</code></h1>
+</header>
+<section id="section-intro">
+<p>Module containing unit tests for triangulation and binary conversion.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="TP.tests.TestsUnitaires.TestBinaryConversions"><code class="flex name class">
+<span>class <span class="ident">TestBinaryConversions</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TestBinaryConversions:
+    &#34;&#34;&#34;Tests unitaires des conversions binaires.&#34;&#34;&#34;
+    
+    def test_pointset_to_binary(self, sample_points):
+        &#34;&#34;&#34;Test: PointSet -&gt; flux binaire conforme.&#34;&#34;&#34;
+        from Triangulator.binary_format import pointset_to_binary
+        
+        binary_data = pointset_to_binary(sample_points)
+        
+        # Vérifie les 4 premiers bytes (nombre de points)
+        num_points = struct.unpack(&#39;&lt;L&#39;, binary_data[:4])[0]
+        assert num_points == 3
+        
+        # Vérifie la taille totale
+        expected_size = 4 + (3 * 8)  # 4 bytes header + 3 points * 8 bytes
+        assert len(binary_data) == expected_size
+        
+        # Vérifier chaque point
+        offset = 4
+        for _, (x, y) in enumerate(sample_points):
+            x_bytes = binary_data[offset:offset+4]
+            y_bytes = binary_data[offset+4:offset+8]
+            
+            x_decoded = struct.unpack(&#39;&lt;f&#39;, x_bytes)[0]
+            y_decoded = struct.unpack(&#39;&lt;f&#39;, y_bytes)[0]
+            
+            assert abs(x_decoded - x) &lt; 1e-6
+            assert abs(y_decoded - y) &lt; 1e-6
+            
+            offset += 8
+    
+    def test_binary_to_pointset(self, sample_points):
+        &#34;&#34;&#34;Test: flux binaire -&gt; PointSet, points identiques à l&#39;original.&#34;&#34;&#34;
+        from Triangulator.binary_format import binary_to_pointset, pointset_to_binary
+        
+        binary_data = pointset_to_binary(sample_points)
+        decoded_points = binary_to_pointset(binary_data)
+        
+        assert len(decoded_points) == len(sample_points)
+        
+        for original, decoded in zip(sample_points, decoded_points, strict=True):
+            assert abs(original[0] - decoded[0]) &lt; 1e-6
+            assert abs(original[1] - decoded[1]) &lt; 1e-6
+    
+    def test_triangles_to_binary(self, sample_points):
+        &#34;&#34;&#34;Test: Triangles -&gt; flux binaire conforme.&#34;&#34;&#34;
+        from Triangulator.binary_format import triangles_to_binary
+        
+        triangles = [(0, 1, 2)]
+        binary_data = triangles_to_binary(sample_points, triangles)
+        
+        # Partie 1: PointSet
+        num_points = struct.unpack(&#39;&lt;L&#39;, binary_data[:4])[0]
+        assert num_points == 3
+        
+        pointset_size = 4 + (3 * 8)
+        
+        # Partie 2: Triangles
+        num_triangles = struct.unpack(&#39;&lt;L&#39;, binary_data[pointset_size:pointset_size+4])[0]
+        assert num_triangles == 1
+        
+        # Vérifier les indices du triangle
+        offset = pointset_size + 4
+        for i in range(3):
+            idx = struct.unpack(&#39;&lt;L&#39;, binary_data[offset:offset+4])[0]
+            assert idx == i
+            offset += 4
+    
+    def test_binary_to_triangles(self, sample_points):
+        &#34;&#34;&#34;Test: flux binaire -&gt; Triangles, triangles identiques à l&#39;original.&#34;&#34;&#34;
+        from Triangulator.binary_format import binary_to_triangles, triangles_to_binary
+        
+        original_triangles = [(0, 1, 2)]
+        binary_data = triangles_to_binary(sample_points, original_triangles)
+        
+        decoded_points, decoded_triangles = binary_to_triangles(binary_data)
+        
+        assert len(decoded_triangles) == len(original_triangles)
+        assert decoded_triangles[0] == original_triangles[0]
+    
+    def test_no_duplicate_vertex_in_triangle(self, sample_points):
+        &#34;&#34;&#34;Test: Vérifier qu&#39;il n&#39;y a pas plusieurs fois le même sommet pour un triangle.&#34;&#34;&#34;
+        from Triangulator.binary_format import binary_to_triangles, triangles_to_binary
+        
+        triangles = [(0, 1, 2)]
+        binary_data = triangles_to_binary(sample_points, triangles)
+        _, decoded_triangles = binary_to_triangles(binary_data)
+        
+        for triangle in decoded_triangles:
+            assert len(set(triangle)) == 3, &#34;Triangle has duplicate vertices&#34;
+    
+    def test_binary_size_verification(self, sample_points):
+        &#34;&#34;&#34;Test: Vérification de la taille et du nombre de bytes.&#34;&#34;&#34;
+        from Triangulator.binary_format import pointset_to_binary, triangles_to_binary
+        
+        # PointSet
+        ps_binary = pointset_to_binary(sample_points)
+        expected_ps_size = 4 + len(sample_points) * 8
+        assert len(ps_binary) == expected_ps_size
+        
+        # Triangles
+        triangles = [(0, 1, 2)]
+        tr_binary = triangles_to_binary(sample_points, triangles)
+        expected_tr_size = expected_ps_size + 4 + len(triangles) * 12
+        assert len(tr_binary) == expected_tr_size
+    
+    
+    def test_binary_with_negative_coordinates(self):
+        &#34;&#34;&#34;Test: Conversion binaire avec coordonnées négatives.&#34;&#34;&#34;
+        from Triangulator.binary_format import binary_to_pointset, pointset_to_binary
+        
+        points = [
+            (-1.5, -2.5),
+            (3.0, -1.0),
+            (-0.5, 4.5)
+        ]
+        
+        binary_data = pointset_to_binary(points)
+        decoded = binary_to_pointset(binary_data)
+        
+        for original, decoded_pt in zip(points, decoded, strict=True):
+            assert abs(original[0] - decoded_pt[0]) &lt; 1e-6
+            assert abs(original[1] - decoded_pt[1]) &lt; 1e-6
+    
+    def test_binary_with_large_pointset(self, large_pointset_1000):
+        &#34;&#34;&#34;Test: Conversion binaire avec 1000 points.&#34;&#34;&#34;
+        from Triangulator.binary_format import binary_to_pointset, pointset_to_binary
+        
+        binary_data = pointset_to_binary(large_pointset_1000)
+        decoded = binary_to_pointset(binary_data)
+        
+        assert len(decoded) == len(large_pointset_1000)
+        
+        # Vérification avec quelques points aléatoires
+        # Tolérance 1e-4 pour erreurs d&#39;arrondi float64 en struct.pack/unpack
+        for i in [0, 100, 500, 999]:
+            assert abs(large_pointset_1000[i][0] - decoded[i][0]) &lt; 1e-4
+            assert abs(large_pointset_1000[i][1] - decoded[i][1]) &lt; 1e-4
+    
+    def test_binary_corrupted_data(self):
+        &#34;&#34;&#34;Test: Données binaires corrompues -&gt; exceptions.&#34;&#34;&#34;
+        from Triangulator.binary_format import binary_to_pointset
+        
+        # Données trop courtes
+        corrupted = b&#39;\x05\x00\x00\x00&#39;
+        
+        with pytest.raises((ValueError, struct.error)):
+            binary_to_pointset(corrupted)
+    
+    def test_binary_zero_points(self):
+        &#34;&#34;&#34;Test: Conversion binaire avec 0 points.&#34;&#34;&#34;
+        from Triangulator.binary_format import binary_to_pointset, pointset_to_binary
+        
+        points = []
+        binary_data = pointset_to_binary(points)
+        
+        assert len(binary_data) &gt;= 4
+        
+        decoded = binary_to_pointset(binary_data)
+        assert len(decoded) == 0</code></pre>
+</details>
+<div class="desc"><p>Tests unitaires des conversions binaires.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="TP.tests.TestsUnitaires.TestBinaryConversions.test_binary_corrupted_data"><code class="name flex">
+<span>def <span class="ident">test_binary_corrupted_data</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_binary_corrupted_data(self):
+    &#34;&#34;&#34;Test: Données binaires corrompues -&gt; exceptions.&#34;&#34;&#34;
+    from Triangulator.binary_format import binary_to_pointset
+    
+    # Données trop courtes
+    corrupted = b&#39;\x05\x00\x00\x00&#39;
+    
+    with pytest.raises((ValueError, struct.error)):
+        binary_to_pointset(corrupted)</code></pre>
+</details>
+<div class="desc"><p>Test: Données binaires corrompues -&gt; exceptions.</p></div>
+</dd>
+<dt id="TP.tests.TestsUnitaires.TestBinaryConversions.test_binary_size_verification"><code class="name flex">
+<span>def <span class="ident">test_binary_size_verification</span></span>(<span>self, sample_points)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_binary_size_verification(self, sample_points):
+    &#34;&#34;&#34;Test: Vérification de la taille et du nombre de bytes.&#34;&#34;&#34;
+    from Triangulator.binary_format import pointset_to_binary, triangles_to_binary
+    
+    # PointSet
+    ps_binary = pointset_to_binary(sample_points)
+    expected_ps_size = 4 + len(sample_points) * 8
+    assert len(ps_binary) == expected_ps_size
+    
+    # Triangles
+    triangles = [(0, 1, 2)]
+    tr_binary = triangles_to_binary(sample_points, triangles)
+    expected_tr_size = expected_ps_size + 4 + len(triangles) * 12
+    assert len(tr_binary) == expected_tr_size</code></pre>
+</details>
+<div class="desc"><p>Test: Vérification de la taille et du nombre de bytes.</p></div>
+</dd>
+<dt id="TP.tests.TestsUnitaires.TestBinaryConversions.test_binary_to_pointset"><code class="name flex">
+<span>def <span class="ident">test_binary_to_pointset</span></span>(<span>self, sample_points)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_binary_to_pointset(self, sample_points):
+    &#34;&#34;&#34;Test: flux binaire -&gt; PointSet, points identiques à l&#39;original.&#34;&#34;&#34;
+    from Triangulator.binary_format import binary_to_pointset, pointset_to_binary
+    
+    binary_data = pointset_to_binary(sample_points)
+    decoded_points = binary_to_pointset(binary_data)
+    
+    assert len(decoded_points) == len(sample_points)
+    
+    for original, decoded in zip(sample_points, decoded_points, strict=True):
+        assert abs(original[0] - decoded[0]) &lt; 1e-6
+        assert abs(original[1] - decoded[1]) &lt; 1e-6</code></pre>
+</details>
+<div class="desc"><p>Test: flux binaire -&gt; PointSet, points identiques à l'original.</p></div>
+</dd>
+<dt id="TP.tests.TestsUnitaires.TestBinaryConversions.test_binary_to_triangles"><code class="name flex">
+<span>def <span class="ident">test_binary_to_triangles</span></span>(<span>self, sample_points)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_binary_to_triangles(self, sample_points):
+    &#34;&#34;&#34;Test: flux binaire -&gt; Triangles, triangles identiques à l&#39;original.&#34;&#34;&#34;
+    from Triangulator.binary_format import binary_to_triangles, triangles_to_binary
+    
+    original_triangles = [(0, 1, 2)]
+    binary_data = triangles_to_binary(sample_points, original_triangles)
+    
+    decoded_points, decoded_triangles = binary_to_triangles(binary_data)
+    
+    assert len(decoded_triangles) == len(original_triangles)
+    assert decoded_triangles[0] == original_triangles[0]</code></pre>
+</details>
+<div class="desc"><p>Test: flux binaire -&gt; Triangles, triangles identiques à l'original.</p></div>
+</dd>
+<dt id="TP.tests.TestsUnitaires.TestBinaryConversions.test_binary_with_large_pointset"><code class="name flex">
+<span>def <span class="ident">test_binary_with_large_pointset</span></span>(<span>self, large_pointset_1000)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_binary_with_large_pointset(self, large_pointset_1000):
+    &#34;&#34;&#34;Test: Conversion binaire avec 1000 points.&#34;&#34;&#34;
+    from Triangulator.binary_format import binary_to_pointset, pointset_to_binary
+    
+    binary_data = pointset_to_binary(large_pointset_1000)
+    decoded = binary_to_pointset(binary_data)
+    
+    assert len(decoded) == len(large_pointset_1000)
+    
+    # Vérification avec quelques points aléatoires
+    # Tolérance 1e-4 pour erreurs d&#39;arrondi float64 en struct.pack/unpack
+    for i in [0, 100, 500, 999]:
+        assert abs(large_pointset_1000[i][0] - decoded[i][0]) &lt; 1e-4
+        assert abs(large_pointset_1000[i][1] - decoded[i][1]) &lt; 1e-4</code></pre>
+</details>
+<div class="desc"><p>Test: Conversion binaire avec 1000 points.</p></div>
+</dd>
+<dt id="TP.tests.TestsUnitaires.TestBinaryConversions.test_binary_with_negative_coordinates"><code class="name flex">
+<span>def <span class="ident">test_binary_with_negative_coordinates</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_binary_with_negative_coordinates(self):
+    &#34;&#34;&#34;Test: Conversion binaire avec coordonnées négatives.&#34;&#34;&#34;
+    from Triangulator.binary_format import binary_to_pointset, pointset_to_binary
+    
+    points = [
+        (-1.5, -2.5),
+        (3.0, -1.0),
+        (-0.5, 4.5)
+    ]
+    
+    binary_data = pointset_to_binary(points)
+    decoded = binary_to_pointset(binary_data)
+    
+    for original, decoded_pt in zip(points, decoded, strict=True):
+        assert abs(original[0] - decoded_pt[0]) &lt; 1e-6
+        assert abs(original[1] - decoded_pt[1]) &lt; 1e-6</code></pre>
+</details>
+<div class="desc"><p>Test: Conversion binaire avec coordonnées négatives.</p></div>
+</dd>
+<dt id="TP.tests.TestsUnitaires.TestBinaryConversions.test_binary_zero_points"><code class="name flex">
+<span>def <span class="ident">test_binary_zero_points</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_binary_zero_points(self):
+    &#34;&#34;&#34;Test: Conversion binaire avec 0 points.&#34;&#34;&#34;
+    from Triangulator.binary_format import binary_to_pointset, pointset_to_binary
+    
+    points = []
+    binary_data = pointset_to_binary(points)
+    
+    assert len(binary_data) &gt;= 4
+    
+    decoded = binary_to_pointset(binary_data)
+    assert len(decoded) == 0</code></pre>
+</details>
+<div class="desc"><p>Test: Conversion binaire avec 0 points.</p></div>
+</dd>
+<dt id="TP.tests.TestsUnitaires.TestBinaryConversions.test_no_duplicate_vertex_in_triangle"><code class="name flex">
+<span>def <span class="ident">test_no_duplicate_vertex_in_triangle</span></span>(<span>self, sample_points)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_no_duplicate_vertex_in_triangle(self, sample_points):
+    &#34;&#34;&#34;Test: Vérifier qu&#39;il n&#39;y a pas plusieurs fois le même sommet pour un triangle.&#34;&#34;&#34;
+    from Triangulator.binary_format import binary_to_triangles, triangles_to_binary
+    
+    triangles = [(0, 1, 2)]
+    binary_data = triangles_to_binary(sample_points, triangles)
+    _, decoded_triangles = binary_to_triangles(binary_data)
+    
+    for triangle in decoded_triangles:
+        assert len(set(triangle)) == 3, &#34;Triangle has duplicate vertices&#34;</code></pre>
+</details>
+<div class="desc"><p>Test: Vérifier qu'il n'y a pas plusieurs fois le même sommet pour un triangle.</p></div>
+</dd>
+<dt id="TP.tests.TestsUnitaires.TestBinaryConversions.test_pointset_to_binary"><code class="name flex">
+<span>def <span class="ident">test_pointset_to_binary</span></span>(<span>self, sample_points)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_pointset_to_binary(self, sample_points):
+    &#34;&#34;&#34;Test: PointSet -&gt; flux binaire conforme.&#34;&#34;&#34;
+    from Triangulator.binary_format import pointset_to_binary
+    
+    binary_data = pointset_to_binary(sample_points)
+    
+    # Vérifie les 4 premiers bytes (nombre de points)
+    num_points = struct.unpack(&#39;&lt;L&#39;, binary_data[:4])[0]
+    assert num_points == 3
+    
+    # Vérifie la taille totale
+    expected_size = 4 + (3 * 8)  # 4 bytes header + 3 points * 8 bytes
+    assert len(binary_data) == expected_size
+    
+    # Vérifier chaque point
+    offset = 4
+    for _, (x, y) in enumerate(sample_points):
+        x_bytes = binary_data[offset:offset+4]
+        y_bytes = binary_data[offset+4:offset+8]
+        
+        x_decoded = struct.unpack(&#39;&lt;f&#39;, x_bytes)[0]
+        y_decoded = struct.unpack(&#39;&lt;f&#39;, y_bytes)[0]
+        
+        assert abs(x_decoded - x) &lt; 1e-6
+        assert abs(y_decoded - y) &lt; 1e-6
+        
+        offset += 8</code></pre>
+</details>
+<div class="desc"><p>Test: PointSet -&gt; flux binaire conforme.</p></div>
+</dd>
+<dt id="TP.tests.TestsUnitaires.TestBinaryConversions.test_triangles_to_binary"><code class="name flex">
+<span>def <span class="ident">test_triangles_to_binary</span></span>(<span>self, sample_points)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_triangles_to_binary(self, sample_points):
+    &#34;&#34;&#34;Test: Triangles -&gt; flux binaire conforme.&#34;&#34;&#34;
+    from Triangulator.binary_format import triangles_to_binary
+    
+    triangles = [(0, 1, 2)]
+    binary_data = triangles_to_binary(sample_points, triangles)
+    
+    # Partie 1: PointSet
+    num_points = struct.unpack(&#39;&lt;L&#39;, binary_data[:4])[0]
+    assert num_points == 3
+    
+    pointset_size = 4 + (3 * 8)
+    
+    # Partie 2: Triangles
+    num_triangles = struct.unpack(&#39;&lt;L&#39;, binary_data[pointset_size:pointset_size+4])[0]
+    assert num_triangles == 1
+    
+    # Vérifier les indices du triangle
+    offset = pointset_size + 4
+    for i in range(3):
+        idx = struct.unpack(&#39;&lt;L&#39;, binary_data[offset:offset+4])[0]
+        assert idx == i
+        offset += 4</code></pre>
+</details>
+<div class="desc"><p>Test: Triangles -&gt; flux binaire conforme.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="TP.tests.TestsUnitaires.TestTriangulationAlgorithm"><code class="flex name class">
+<span>class <span class="ident">TestTriangulationAlgorithm</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TestTriangulationAlgorithm:
+    &#34;&#34;&#34;Tests unitaires de l&#39;algorithme de triangulation.&#34;&#34;&#34;
+    
+    def test_three_points_one_triangle(self, sample_points):
+        &#34;&#34;&#34;Test: 3 points -&gt; 1 triangle correct.&#34;&#34;&#34;
+        from Triangulator.triangulator import triangulate
+        
+        triangles = triangulate(sample_points)
+        
+        assert len(triangles) == 1
+        assert len(triangles[0]) == 3
+        assert set(triangles[0]) == {0, 1, 2}
+    
+    def test_four_points_square_two_triangles(self, square_points):
+        &#34;&#34;&#34;Test: 4 points formant un carré -&gt; 2 triangles.&#34;&#34;&#34;
+        from Triangulator.triangulator import triangulate
+        
+        triangles = triangulate(square_points)
+        
+        assert len(triangles) == 2
+        for triangle in triangles:
+            assert len(triangle) == 3
+    
+    def test_collinear_points_no_triangle(self, collinear_points):
+        &#34;&#34;&#34;Test: Points alignés -&gt; aucun triangle.&#34;&#34;&#34;
+        from Triangulator.triangulator import triangulate
+        
+        triangles = triangulate(collinear_points)
+        
+        assert len(triangles) == 0
+    
+    def test_duplicate_points_rejection(self):
+        &#34;&#34;&#34;Test: Points dupliqués -&gt; rejet ou fusion.&#34;&#34;&#34;
+        from Triangulator.triangulator import triangulate
+        
+        points = [
+            (0.0, 0.0),
+            (1.0, 0.0),
+            (0.5, 1.0),
+            (0.0, 0.0)  # Dupliqué
+        ]
+        
+        # Soit rejeter , soit fusionner
+        try:
+            triangles = triangulate(points)
+            # Si fusion, vérifier qu&#39;on a 3 points uniques
+            unique_indices = set()
+            for triangle in triangles:
+                unique_indices.update(triangle)
+            assert len(unique_indices) &lt;= 3
+        except ValueError as e:
+            assert &#34;duplicate&#34; in str(e).lower() or &#34;duplicat&#34; in str(e).lower()
+    
+    def test_invalid_input_format(self):
+        &#34;&#34;&#34;Test: Format d&#39;entrée invalide -&gt; exceptions gérées.&#34;&#34;&#34;
+        from Triangulator.triangulator import triangulate
+        
+        with pytest.raises((TypeError, ValueError)):
+            triangulate(&#34;invalid&#34;)
+        
+        with pytest.raises((TypeError, ValueError)):
+            triangulate([1, 2, 3])
+        
+        with pytest.raises((TypeError, ValueError)):
+            triangulate([(1.0,)])
+    
+    def test_empty_pointset(self):
+        &#34;&#34;&#34;Test: PointSet vide -&gt; renvoyer une erreur.&#34;&#34;&#34;
+        from Triangulator.triangulator import triangulate
+        
+        with pytest.raises(ValueError) as exc_info:
+            triangulate([])
+        
+        assert &#34;empty&#34; in str(exc_info.value).lower() or &#34;vide&#34; in str(exc_info.value).lower()
+    
+    def test_points_with_nan(self):
+        &#34;&#34;&#34;Test: Points avec NaN -&gt; rejeter.&#34;&#34;&#34;
+        from Triangulator.triangulator import triangulate
+        
+        points = [
+            (0.0, 0.0),
+            (float(&#39;nan&#39;), 0.0),
+            (0.5, 1.0)
+        ]
+        
+        with pytest.raises(ValueError) as exc_info:
+            triangulate(points)
+        
+        assert &#34;nan&#34; in str(exc_info.value).lower() or &#34;invalid&#34; in str(exc_info.value).lower()
+    
+    def test_points_with_inf(self):
+        &#34;&#34;&#34;Test: Points avec inf -&gt; rejeter.&#34;&#34;&#34;
+        from Triangulator.triangulator import triangulate
+        
+        points = [
+            (0.0, 0.0),
+            (float(&#39;inf&#39;), 0.0),
+            (0.5, 1.0)
+        ]
+        
+        with pytest.raises(ValueError) as exc_info:
+            triangulate(points)
+        
+        assert &#34;inf&#34; in str(exc_info.value).lower() or &#34;invalid&#34; in str(exc_info.value).lower()
+    
+    
+    def test_very_large_coordinates(self):
+        &#34;&#34;&#34;Test: Points avec très grandes coordonnées -&gt;overflow potentiel.&#34;&#34;&#34;
+        from Triangulator.triangulator import triangulate
+        
+        points = [
+            (1e6, 1e6),
+            (1e6 + 1, 1e6),
+            (1e6 + 0.5, 1e6 + 1)
+        ]
+        
+        # Devrait fonctionner sans overflow
+        triangles = triangulate(points)
+        assert len(triangles) &gt;= 0  # Au minimum, pas de crash
+    
+    def test_very_close_points_precision(self, very_close_points):
+        &#34;&#34;&#34;Test: Points très proches.&#34;&#34;&#34;
+        from Triangulator.triangulator import triangulate
+        
+        # Points séparés de 1e-8 peuvent causer des problèmes de précision
+        try:
+            triangles = triangulate(very_close_points)
+            # Soit aucun triangle (si trop proches pour être distingués)
+            # Soit un triangle valide
+            assert len(triangles) &gt;= 0
+        except ValueError:
+            # rejet si trop proches
+            pass
+    
+    def test_large_number_of_points_1000(self, large_pointset_1000):
+        &#34;&#34;&#34;Test: Triangulation avec 1000 points.&#34;&#34;&#34;
+        from Triangulator.triangulator import triangulate
+        
+        triangles = triangulate(large_pointset_1000)
+        
+        # Vérifie qu&#39;on a des triangles
+        assert len(triangles) &gt; 0
+        
+        # Vérifie que les indices sont valides
+        for triangle in triangles:
+            assert all(0 &lt;= idx &lt; len(large_pointset_1000) for idx in triangle)
+    
+    def test_negative_coordinates(self):
+        &#34;&#34;&#34;Test: Points avec coordonnées négatives.&#34;&#34;&#34;
+        from Triangulator.triangulator import triangulate
+        
+        points = [
+            (-1.0, -1.0),
+            (1.0, -1.0),
+            (0.0, 1.0)
+        ]
+        
+        triangles = triangulate(points)
+        assert len(triangles) == 1</code></pre>
+</details>
+<div class="desc"><p>Tests unitaires de l'algorithme de triangulation.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_collinear_points_no_triangle"><code class="name flex">
+<span>def <span class="ident">test_collinear_points_no_triangle</span></span>(<span>self, collinear_points)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_collinear_points_no_triangle(self, collinear_points):
+    &#34;&#34;&#34;Test: Points alignés -&gt; aucun triangle.&#34;&#34;&#34;
+    from Triangulator.triangulator import triangulate
+    
+    triangles = triangulate(collinear_points)
+    
+    assert len(triangles) == 0</code></pre>
+</details>
+<div class="desc"><p>Test: Points alignés -&gt; aucun triangle.</p></div>
+</dd>
+<dt id="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_duplicate_points_rejection"><code class="name flex">
+<span>def <span class="ident">test_duplicate_points_rejection</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_duplicate_points_rejection(self):
+    &#34;&#34;&#34;Test: Points dupliqués -&gt; rejet ou fusion.&#34;&#34;&#34;
+    from Triangulator.triangulator import triangulate
+    
+    points = [
+        (0.0, 0.0),
+        (1.0, 0.0),
+        (0.5, 1.0),
+        (0.0, 0.0)  # Dupliqué
+    ]
+    
+    # Soit rejeter , soit fusionner
+    try:
+        triangles = triangulate(points)
+        # Si fusion, vérifier qu&#39;on a 3 points uniques
+        unique_indices = set()
+        for triangle in triangles:
+            unique_indices.update(triangle)
+        assert len(unique_indices) &lt;= 3
+    except ValueError as e:
+        assert &#34;duplicate&#34; in str(e).lower() or &#34;duplicat&#34; in str(e).lower()</code></pre>
+</details>
+<div class="desc"><p>Test: Points dupliqués -&gt; rejet ou fusion.</p></div>
+</dd>
+<dt id="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_empty_pointset"><code class="name flex">
+<span>def <span class="ident">test_empty_pointset</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_empty_pointset(self):
+    &#34;&#34;&#34;Test: PointSet vide -&gt; renvoyer une erreur.&#34;&#34;&#34;
+    from Triangulator.triangulator import triangulate
+    
+    with pytest.raises(ValueError) as exc_info:
+        triangulate([])
+    
+    assert &#34;empty&#34; in str(exc_info.value).lower() or &#34;vide&#34; in str(exc_info.value).lower()</code></pre>
+</details>
+<div class="desc"><p>Test: PointSet vide -&gt; renvoyer une erreur.</p></div>
+</dd>
+<dt id="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_four_points_square_two_triangles"><code class="name flex">
+<span>def <span class="ident">test_four_points_square_two_triangles</span></span>(<span>self, square_points)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_four_points_square_two_triangles(self, square_points):
+    &#34;&#34;&#34;Test: 4 points formant un carré -&gt; 2 triangles.&#34;&#34;&#34;
+    from Triangulator.triangulator import triangulate
+    
+    triangles = triangulate(square_points)
+    
+    assert len(triangles) == 2
+    for triangle in triangles:
+        assert len(triangle) == 3</code></pre>
+</details>
+<div class="desc"><p>Test: 4 points formant un carré -&gt; 2 triangles.</p></div>
+</dd>
+<dt id="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_invalid_input_format"><code class="name flex">
+<span>def <span class="ident">test_invalid_input_format</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_invalid_input_format(self):
+    &#34;&#34;&#34;Test: Format d&#39;entrée invalide -&gt; exceptions gérées.&#34;&#34;&#34;
+    from Triangulator.triangulator import triangulate
+    
+    with pytest.raises((TypeError, ValueError)):
+        triangulate(&#34;invalid&#34;)
+    
+    with pytest.raises((TypeError, ValueError)):
+        triangulate([1, 2, 3])
+    
+    with pytest.raises((TypeError, ValueError)):
+        triangulate([(1.0,)])</code></pre>
+</details>
+<div class="desc"><p>Test: Format d'entrée invalide -&gt; exceptions gérées.</p></div>
+</dd>
+<dt id="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_large_number_of_points_1000"><code class="name flex">
+<span>def <span class="ident">test_large_number_of_points_1000</span></span>(<span>self, large_pointset_1000)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_large_number_of_points_1000(self, large_pointset_1000):
+    &#34;&#34;&#34;Test: Triangulation avec 1000 points.&#34;&#34;&#34;
+    from Triangulator.triangulator import triangulate
+    
+    triangles = triangulate(large_pointset_1000)
+    
+    # Vérifie qu&#39;on a des triangles
+    assert len(triangles) &gt; 0
+    
+    # Vérifie que les indices sont valides
+    for triangle in triangles:
+        assert all(0 &lt;= idx &lt; len(large_pointset_1000) for idx in triangle)</code></pre>
+</details>
+<div class="desc"><p>Test: Triangulation avec 1000 points.</p></div>
+</dd>
+<dt id="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_negative_coordinates"><code class="name flex">
+<span>def <span class="ident">test_negative_coordinates</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_negative_coordinates(self):
+    &#34;&#34;&#34;Test: Points avec coordonnées négatives.&#34;&#34;&#34;
+    from Triangulator.triangulator import triangulate
+    
+    points = [
+        (-1.0, -1.0),
+        (1.0, -1.0),
+        (0.0, 1.0)
+    ]
+    
+    triangles = triangulate(points)
+    assert len(triangles) == 1</code></pre>
+</details>
+<div class="desc"><p>Test: Points avec coordonnées négatives.</p></div>
+</dd>
+<dt id="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_points_with_inf"><code class="name flex">
+<span>def <span class="ident">test_points_with_inf</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_points_with_inf(self):
+    &#34;&#34;&#34;Test: Points avec inf -&gt; rejeter.&#34;&#34;&#34;
+    from Triangulator.triangulator import triangulate
+    
+    points = [
+        (0.0, 0.0),
+        (float(&#39;inf&#39;), 0.0),
+        (0.5, 1.0)
+    ]
+    
+    with pytest.raises(ValueError) as exc_info:
+        triangulate(points)
+    
+    assert &#34;inf&#34; in str(exc_info.value).lower() or &#34;invalid&#34; in str(exc_info.value).lower()</code></pre>
+</details>
+<div class="desc"><p>Test: Points avec inf -&gt; rejeter.</p></div>
+</dd>
+<dt id="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_points_with_nan"><code class="name flex">
+<span>def <span class="ident">test_points_with_nan</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_points_with_nan(self):
+    &#34;&#34;&#34;Test: Points avec NaN -&gt; rejeter.&#34;&#34;&#34;
+    from Triangulator.triangulator import triangulate
+    
+    points = [
+        (0.0, 0.0),
+        (float(&#39;nan&#39;), 0.0),
+        (0.5, 1.0)
+    ]
+    
+    with pytest.raises(ValueError) as exc_info:
+        triangulate(points)
+    
+    assert &#34;nan&#34; in str(exc_info.value).lower() or &#34;invalid&#34; in str(exc_info.value).lower()</code></pre>
+</details>
+<div class="desc"><p>Test: Points avec NaN -&gt; rejeter.</p></div>
+</dd>
+<dt id="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_three_points_one_triangle"><code class="name flex">
+<span>def <span class="ident">test_three_points_one_triangle</span></span>(<span>self, sample_points)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_three_points_one_triangle(self, sample_points):
+    &#34;&#34;&#34;Test: 3 points -&gt; 1 triangle correct.&#34;&#34;&#34;
+    from Triangulator.triangulator import triangulate
+    
+    triangles = triangulate(sample_points)
+    
+    assert len(triangles) == 1
+    assert len(triangles[0]) == 3
+    assert set(triangles[0]) == {0, 1, 2}</code></pre>
+</details>
+<div class="desc"><p>Test: 3 points -&gt; 1 triangle correct.</p></div>
+</dd>
+<dt id="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_very_close_points_precision"><code class="name flex">
+<span>def <span class="ident">test_very_close_points_precision</span></span>(<span>self, very_close_points)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_very_close_points_precision(self, very_close_points):
+    &#34;&#34;&#34;Test: Points très proches.&#34;&#34;&#34;
+    from Triangulator.triangulator import triangulate
+    
+    # Points séparés de 1e-8 peuvent causer des problèmes de précision
+    try:
+        triangles = triangulate(very_close_points)
+        # Soit aucun triangle (si trop proches pour être distingués)
+        # Soit un triangle valide
+        assert len(triangles) &gt;= 0
+    except ValueError:
+        # rejet si trop proches
+        pass</code></pre>
+</details>
+<div class="desc"><p>Test: Points très proches.</p></div>
+</dd>
+<dt id="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_very_large_coordinates"><code class="name flex">
+<span>def <span class="ident">test_very_large_coordinates</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_very_large_coordinates(self):
+    &#34;&#34;&#34;Test: Points avec très grandes coordonnées -&gt;overflow potentiel.&#34;&#34;&#34;
+    from Triangulator.triangulator import triangulate
+    
+    points = [
+        (1e6, 1e6),
+        (1e6 + 1, 1e6),
+        (1e6 + 0.5, 1e6 + 1)
+    ]
+    
+    # Devrait fonctionner sans overflow
+    triangles = triangulate(points)
+    assert len(triangles) &gt;= 0  # Au minimum, pas de crash</code></pre>
+</details>
+<div class="desc"><p>Test: Points avec très grandes coordonnées -&gt;overflow potentiel.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="TP.tests" href="index.html">TP.tests</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="TP.tests.TestsUnitaires.TestBinaryConversions" href="#TP.tests.TestsUnitaires.TestBinaryConversions">TestBinaryConversions</a></code></h4>
+<ul class="">
+<li><code><a title="TP.tests.TestsUnitaires.TestBinaryConversions.test_binary_corrupted_data" href="#TP.tests.TestsUnitaires.TestBinaryConversions.test_binary_corrupted_data">test_binary_corrupted_data</a></code></li>
+<li><code><a title="TP.tests.TestsUnitaires.TestBinaryConversions.test_binary_size_verification" href="#TP.tests.TestsUnitaires.TestBinaryConversions.test_binary_size_verification">test_binary_size_verification</a></code></li>
+<li><code><a title="TP.tests.TestsUnitaires.TestBinaryConversions.test_binary_to_pointset" href="#TP.tests.TestsUnitaires.TestBinaryConversions.test_binary_to_pointset">test_binary_to_pointset</a></code></li>
+<li><code><a title="TP.tests.TestsUnitaires.TestBinaryConversions.test_binary_to_triangles" href="#TP.tests.TestsUnitaires.TestBinaryConversions.test_binary_to_triangles">test_binary_to_triangles</a></code></li>
+<li><code><a title="TP.tests.TestsUnitaires.TestBinaryConversions.test_binary_with_large_pointset" href="#TP.tests.TestsUnitaires.TestBinaryConversions.test_binary_with_large_pointset">test_binary_with_large_pointset</a></code></li>
+<li><code><a title="TP.tests.TestsUnitaires.TestBinaryConversions.test_binary_with_negative_coordinates" href="#TP.tests.TestsUnitaires.TestBinaryConversions.test_binary_with_negative_coordinates">test_binary_with_negative_coordinates</a></code></li>
+<li><code><a title="TP.tests.TestsUnitaires.TestBinaryConversions.test_binary_zero_points" href="#TP.tests.TestsUnitaires.TestBinaryConversions.test_binary_zero_points">test_binary_zero_points</a></code></li>
+<li><code><a title="TP.tests.TestsUnitaires.TestBinaryConversions.test_no_duplicate_vertex_in_triangle" href="#TP.tests.TestsUnitaires.TestBinaryConversions.test_no_duplicate_vertex_in_triangle">test_no_duplicate_vertex_in_triangle</a></code></li>
+<li><code><a title="TP.tests.TestsUnitaires.TestBinaryConversions.test_pointset_to_binary" href="#TP.tests.TestsUnitaires.TestBinaryConversions.test_pointset_to_binary">test_pointset_to_binary</a></code></li>
+<li><code><a title="TP.tests.TestsUnitaires.TestBinaryConversions.test_triangles_to_binary" href="#TP.tests.TestsUnitaires.TestBinaryConversions.test_triangles_to_binary">test_triangles_to_binary</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="TP.tests.TestsUnitaires.TestTriangulationAlgorithm" href="#TP.tests.TestsUnitaires.TestTriangulationAlgorithm">TestTriangulationAlgorithm</a></code></h4>
+<ul class="">
+<li><code><a title="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_collinear_points_no_triangle" href="#TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_collinear_points_no_triangle">test_collinear_points_no_triangle</a></code></li>
+<li><code><a title="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_duplicate_points_rejection" href="#TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_duplicate_points_rejection">test_duplicate_points_rejection</a></code></li>
+<li><code><a title="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_empty_pointset" href="#TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_empty_pointset">test_empty_pointset</a></code></li>
+<li><code><a title="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_four_points_square_two_triangles" href="#TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_four_points_square_two_triangles">test_four_points_square_two_triangles</a></code></li>
+<li><code><a title="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_invalid_input_format" href="#TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_invalid_input_format">test_invalid_input_format</a></code></li>
+<li><code><a title="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_large_number_of_points_1000" href="#TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_large_number_of_points_1000">test_large_number_of_points_1000</a></code></li>
+<li><code><a title="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_negative_coordinates" href="#TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_negative_coordinates">test_negative_coordinates</a></code></li>
+<li><code><a title="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_points_with_inf" href="#TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_points_with_inf">test_points_with_inf</a></code></li>
+<li><code><a title="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_points_with_nan" href="#TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_points_with_nan">test_points_with_nan</a></code></li>
+<li><code><a title="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_three_points_one_triangle" href="#TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_three_points_one_triangle">test_three_points_one_triangle</a></code></li>
+<li><code><a title="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_very_close_points_precision" href="#TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_very_close_points_precision">test_very_close_points_precision</a></code></li>
+<li><code><a title="TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_very_large_coordinates" href="#TP.tests.TestsUnitaires.TestTriangulationAlgorithm.test_very_large_coordinates">test_very_large_coordinates</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>TP.Triangulator.binary_format API documentation</title>
+<meta name="description" content="Module de gestion des formats binaires pour PointSet et Triangles …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>TP.Triangulator.binary_format</code></h1>
+</header>
+<section id="section-intro">
+<p>Module de gestion des formats binaires pour PointSet et Triangles.</p>
+<p>Ce module fournit des fonctions de conversion bidirectionnelles entre
+les structures de données Python (listes de tuples) et un format binaire optimisé.</p>
+<p>Le format binaire est conçu pour être compact et facilement sérialisable:</p>
+<p><strong>Format PointSet:</strong>
+- 4 bytes (unsigned long en little-endian): nombre de points N
+- N * 8 bytes: pour chaque point, 2 floats (X et Y en little-endian)</p>
+<p><strong>Format Triangles:</strong>
+- Part 1: PointSet complet (cf. Format PointSet)
+- Part 2: Triangles
+- 4 bytes (unsigned long): nombre de triangles T
+- T * 12 bytes: pour chaque triangle, 3 unsigned longs (indices en little-endian)</p>
+<p>Exemple d'utilisation::</p>
+<pre><code>from binary_format import pointset_to_binary, binary_to_pointset
+
+points = [(0.0, 0.0), (1.0, 0.0), (0.5, 1.0)]
+binary = pointset_to_binary(points)
+reconstructed = binary_to_pointset(binary)
+assert reconstructed == points
+</code></pre>
+<p>Avantages du format binaire:
+- Compacité: pas de texte, structures alignées
+- Sérialisation efficace: facilement transmissible sur HTTP
+- Pas d'ambiguïté numérique: utilise struct (spécification IEEE 754)
+- Compatible: little-endian universel</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="TP.Triangulator.binary_format.binary_to_pointset"><code class="name flex">
+<span>def <span class="ident">binary_to_pointset</span></span>(<span>binary_data)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def binary_to_pointset(binary_data):
+    r&#34;&#34;&#34;Convertit des données binaires en liste de points.
+    
+    Décode le format PointSet et valide l&#39;intégrité des données.
+    
+    Args:
+        binary_data (bytes): Données binaires au format PointSet.
+    
+    Returns:
+        list: Liste de tuples (x, y) reconstruit.
+    
+    Raises:
+        ValueError: Si les données sont trop courtes, tronquées ou invalides.
+    
+    Exemple::
+    
+        &gt;&gt;&gt; binary = b&#39;\\x03\\x00\\x00\\x00&#39; + (b&#39;\\x00\\x00\\x00\\x00&#39; * 6)
+        &gt;&gt;&gt; points = binary_to_pointset(binary)
+        &gt;&gt;&gt; len(points)
+        3
+    
+    Note:
+        - Valide que la taille des données correspond au nombre de points.
+        - Génère une erreur explicite en cas de données tronquées.
+
+    &#34;&#34;&#34;
+    if len(binary_data) &lt; 4:
+        raise ValueError(&#34;Binary data too short&#34;)
+    
+    num_points = struct.unpack(&#39;&lt;L&#39;, binary_data[:4])[0]
+    expected_size = 4 + (num_points * 8)
+    
+    if len(binary_data) &lt; expected_size:
+        raise ValueError(&#34;Binary data truncated&#34;)
+    
+    points = []
+    offset = 4
+    for _ in range(num_points):
+        x, y = struct.unpack(&#39;&lt;ff&#39;, binary_data[offset:offset+8])
+        if not math.isfinite(x) or not math.isfinite(y):
+            raise ValueError(&#34;NaN or Infinite value detected&#34;)
+
+        points.append((x, y))
+        offset += 8
+    
+    return points</code></pre>
+</details>
+<div class="desc"><p>Convertit des données binaires en liste de points.</p>
+<p>Décode le format PointSet et valide l'intégrité des données.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>binary_data</code></strong> :&ensp;<code>bytes</code></dt>
+<dd>Données binaires au format PointSet.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>Liste de tuples (x, y) reconstruit.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>Si les données sont trop courtes, tronquées ou invalides.</dd>
+</dl>
+<p>Exemple::</p>
+<pre><code>&gt;&gt;&gt; binary = b'\\x03\\x00\\x00\\x00' + (b'\\x00\\x00\\x00\\x00' * 6)
+&gt;&gt;&gt; points = binary_to_pointset(binary)
+&gt;&gt;&gt; len(points)
+3
+</code></pre>
+<h2 id="note">Note</h2>
+<ul>
+<li>Valide que la taille des données correspond au nombre de points.</li>
+<li>Génère une erreur explicite en cas de données tronquées.</li>
+</ul></div>
+</dd>
+<dt id="TP.Triangulator.binary_format.binary_to_triangles"><code class="name flex">
+<span>def <span class="ident">binary_to_triangles</span></span>(<span>binary_data)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def binary_to_triangles(binary_data):
+    &#34;&#34;&#34;Convertit des données binaires en points et triangles.
+    
+    Décode le format Triangles complet et valide l&#39;intégrité.
+    
+    Args:
+        binary_data (bytes): Données binaires au format Triangles.
+    
+    Returns:
+        tuple: (points, triangles) où:
+            - points est une liste de tuples (x, y)
+            - triangles est une liste de tuples (i, j, k)
+    
+    Raises:
+        ValueError: Si les données sont invalides, tronquées ou contiennent 
+                   des indices hors limites.
+    
+    Exemple::
+    
+        &gt;&gt;&gt; points = [(0, 0), (1, 0), (0.5, 1)]
+        &gt;&gt;&gt; triangles = [(0, 1, 2)]
+        &gt;&gt;&gt; binary = triangles_to_binary(points, triangles)
+        &gt;&gt;&gt; decoded_points, decoded_triangles = binary_to_triangles(binary)
+        &gt;&gt;&gt; decoded_triangles == triangles
+        True
+    
+    Note:
+        - Validation bidirectionnelle complète.
+        - Détecte les triangles avec sommet dupliqué.
+        - Garantit la consistance entre les indices et le nombre de points.
+
+    &#34;&#34;&#34;
+    if len(binary_data) &lt; 4:
+        raise ValueError(&#34;Binary data too short&#34;)
+    
+    num_points = struct.unpack(&#39;&lt;L&#39;, binary_data[:4])[0]
+    pointset_size = 4 + (num_points * 8)
+    
+    if len(binary_data) &lt; pointset_size + 4:
+        raise ValueError(&#34;Binary data truncated&#34;)
+    
+    points = binary_to_pointset(binary_data[:pointset_size])
+    
+    num_triangles = struct.unpack(&#39;&lt;L&#39;, binary_data[pointset_size:pointset_size+4])[0]
+    expected_size = pointset_size + 4 + (num_triangles * 12)
+    
+    if len(binary_data) &lt; expected_size:
+        raise ValueError(&#34;Binary data truncated&#34;)
+    
+    triangles = []
+    offset = pointset_size + 4
+    
+    for _ in range(num_triangles):
+        idx1, idx2, idx3 = struct.unpack(&#39;&lt;LLL&#39;, binary_data[offset:offset+12])
+        
+        for idx in [idx1, idx2, idx3]:
+            if idx &gt;= len(points):
+                raise ValueError(f&#34;Index {idx} out of range&#34;)
+        
+        if len(set([idx1, idx2, idx3])) != 3:
+            raise ValueError(&#34;Triangle has duplicate vertices&#34;)
+        
+        triangles.append((idx1, idx2, idx3))
+        offset += 12
+    
+    return points, triangles</code></pre>
+</details>
+<div class="desc"><p>Convertit des données binaires en points et triangles.</p>
+<p>Décode le format Triangles complet et valide l'intégrité.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>binary_data</code></strong> :&ensp;<code>bytes</code></dt>
+<dd>Données binaires au format Triangles.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>tuple</code></dt>
+<dd>(points, triangles) où:
+- points est une liste de tuples (x, y)
+- triangles est une liste de tuples (i, j, k)</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>Si les données sont invalides, tronquées ou contiennent
+des indices hors limites.</dd>
+</dl>
+<p>Exemple::</p>
+<pre><code>&gt;&gt;&gt; points = [(0, 0), (1, 0), (0.5, 1)]
+&gt;&gt;&gt; triangles = [(0, 1, 2)]
+&gt;&gt;&gt; binary = triangles_to_binary(points, triangles)
+&gt;&gt;&gt; decoded_points, decoded_triangles = binary_to_triangles(binary)
+&gt;&gt;&gt; decoded_triangles == triangles
+True
+</code></pre>
+<h2 id="note">Note</h2>
+<ul>
+<li>Validation bidirectionnelle complète.</li>
+<li>Détecte les triangles avec sommet dupliqué.</li>
+<li>Garantit la consistance entre les indices et le nombre de points.</li>
+</ul></div>
+</dd>
+<dt id="TP.Triangulator.binary_format.pointset_to_binary"><code class="name flex">
+<span>def <span class="ident">pointset_to_binary</span></span>(<span>points)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def pointset_to_binary(points):
+    &#34;&#34;&#34;Convertit une liste de points en format binaire compact.
+    
+    Encode chaque point (x, y) comme deux floats IEEE 754 en little-endian,
+    précédés du nombre de points sur 4 bytes.
+    
+    Args:
+        points (list): Liste de tuples ou listes (x, y).
+                      Chaque coordonnée est convertie en float.
+    
+    Returns:
+        bytes: Données binaires au format PointSet.
+              Taille: 4 + len(points) * 8 bytes
+    
+    Exemple::
+    
+        &gt;&gt;&gt; binary = pointset_to_binary([(0, 0), (1, 0), (0.5, 1)])
+        &gt;&gt;&gt; len(binary)  # 4 bytes (count) + 3 * 8 bytes (points)
+        28
+    
+    Note:
+        - Les coordonnées sont converties en float IEEE 754 (précision simple).
+        - Format: little-endian pour compatibilité universelle.
+        - Pas de validation: utiliser binary_to_pointset pour valider.
+
+    &#34;&#34;&#34;
+    binary_data = struct.pack(&#39;&lt;L&#39;, len(points))
+    for x, y in points:
+        binary_data += struct.pack(&#39;&lt;ff&#39;, float(x), float(y))
+    return binary_data</code></pre>
+</details>
+<div class="desc"><p>Convertit une liste de points en format binaire compact.</p>
+<p>Encode chaque point (x, y) comme deux floats IEEE 754 en little-endian,
+précédés du nombre de points sur 4 bytes.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>points</code></strong> :&ensp;<code>list</code></dt>
+<dd>Liste de tuples ou listes (x, y).
+Chaque coordonnée est convertie en float.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bytes</code></dt>
+<dd>Données binaires au format PointSet.
+Taille: 4 + len(points) * 8 bytes</dd>
+</dl>
+<p>Exemple::</p>
+<pre><code>&gt;&gt;&gt; binary = pointset_to_binary([(0, 0), (1, 0), (0.5, 1)])
+&gt;&gt;&gt; len(binary)  # 4 bytes (count) + 3 * 8 bytes (points)
+28
+</code></pre>
+<h2 id="note">Note</h2>
+<ul>
+<li>Les coordonnées sont converties en float IEEE 754 (précision simple).</li>
+<li>Format: little-endian pour compatibilité universelle.</li>
+<li>Pas de validation: utiliser binary_to_pointset pour valider.</li>
+</ul></div>
+</dd>
+<dt id="TP.Triangulator.binary_format.triangles_to_binary"><code class="name flex">
+<span>def <span class="ident">triangles_to_binary</span></span>(<span>points, triangles)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def triangles_to_binary(points, triangles):
+    &#34;&#34;&#34;Convertit des points et triangles en format binaire compact.
+    
+    Combine le PointSet avec les indices des triangles dans un seul flux binaire.
+    
+    Args:
+        points (list): Liste de tuples (x, y) représentant les points.
+        triangles (list): Liste de tuples (i, j, k) où i, j, k sont les indices 
+                         dans &#39;points&#39; (0-based indexing).
+    
+    Returns:
+        bytes: Données binaires contenant le PointSet puis les Triangles.
+              Taille: 4 + len(points)*8 + 4 + len(triangles)*12 bytes
+    
+    Raises:
+        ValueError: Si un indice est hors limites ou un triangle invalide.
+    
+    Exemple::
+    
+        &gt;&gt;&gt; points = [(0, 0), (1, 0), (0.5, 1)]
+        &gt;&gt;&gt; triangles = [(0, 1, 2)]
+        &gt;&gt;&gt; binary = triangles_to_binary(points, triangles)
+        &gt;&gt;&gt; len(binary)  # 4 + 24 + 4 + 12
+        44
+    
+    Note:
+        - Validation stricte: tous les indices doivent être valides.
+        - Chaque triangle doit avoir exactement 3 sommets distincts.
+
+    &#34;&#34;&#34;
+    binary_data = pointset_to_binary(points)
+    binary_data += struct.pack(&#39;&lt;L&#39;, len(triangles))
+    
+    for tri in triangles:
+        if len(tri) != 3:
+            raise ValueError(&#34;Triangle must have 3 vertices&#34;)
+        for idx in tri:
+            if not isinstance(idx, int) or idx &lt; 0 or idx &gt;= len(points):
+                raise ValueError(f&#34;Index {idx} out of range&#34;)
+            binary_data += struct.pack(&#39;&lt;L&#39;, idx)
+    
+    return binary_data</code></pre>
+</details>
+<div class="desc"><p>Convertit des points et triangles en format binaire compact.</p>
+<p>Combine le PointSet avec les indices des triangles dans un seul flux binaire.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>points</code></strong> :&ensp;<code>list</code></dt>
+<dd>Liste de tuples (x, y) représentant les points.</dd>
+<dt><strong><code>triangles</code></strong> :&ensp;<code>list</code></dt>
+<dd>Liste de tuples (i, j, k) où i, j, k sont les indices
+dans 'points' (0-based indexing).</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bytes</code></dt>
+<dd>Données binaires contenant le PointSet puis les Triangles.
+Taille: 4 + len(points)<em>8 + 4 + len(triangles)</em>12 bytes</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>Si un indice est hors limites ou un triangle invalide.</dd>
+</dl>
+<p>Exemple::</p>
+<pre><code>&gt;&gt;&gt; points = [(0, 0), (1, 0), (0.5, 1)]
+&gt;&gt;&gt; triangles = [(0, 1, 2)]
+&gt;&gt;&gt; binary = triangles_to_binary(points, triangles)
+&gt;&gt;&gt; len(binary)  # 4 + 24 + 4 + 12
+44
+</code></pre>
+<h2 id="note">Note</h2>
+<ul>
+<li>Validation stricte: tous les indices doivent être valides.</li>
+<li>Chaque triangle doit avoir exactement 3 sommets distincts.</li>
+</ul></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="TP.Triangulator" href="index.html">TP.Triangulator</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="TP.Triangulator.binary_format.binary_to_pointset" href="#TP.Triangulator.binary_format.binary_to_pointset">binary_to_pointset</a></code></li>
+<li><code><a title="TP.Triangulator.binary_format.binary_to_triangles" href="#TP.Triangulator.binary_format.binary_to_triangles">binary_to_triangles</a></code></li>
+<li><code><a title="TP.Triangulator.binary_format.pointset_to_binary" href="#TP.Triangulator.binary_format.pointset_to_binary">pointset_to_binary</a></code></li>
+<li><code><a title="TP.Triangulator.binary_format.triangles_to_binary" href="#TP.Triangulator.binary_format.triangles_to_binary">triangles_to_binary</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

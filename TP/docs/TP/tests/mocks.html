@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>TP.tests.mocks API documentation</title>
+<meta name="description" content="Module defining mocks for tests.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>TP.tests.mocks</code></h1>
+</header>
+<section id="section-intro">
+<p>Module defining mocks for tests.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="TP.tests.mocks.client"><code class="name flex">
+<span>def <span class="ident">client</span></span>(<span>flask_app)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.fixture
+def client(flask_app):
+    &#34;&#34;&#34;Client de test Flask.&#34;&#34;&#34;
+    return flask_app.test_client()</code></pre>
+</details>
+<div class="desc"><p>Client de test Flask.</p></div>
+</dd>
+<dt id="TP.tests.mocks.collinear_points"><code class="name flex">
+<span>def <span class="ident">collinear_points</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.fixture
+def collinear_points():
+    &#34;&#34;&#34;Mock fournissant des points alignés.&#34;&#34;&#34;
+    return [
+        (0.0, 0.0),
+        (1.0, 0.0),
+        (2.0, 0.0)
+    ]</code></pre>
+</details>
+<div class="desc"><p>Mock fournissant des points alignés.</p></div>
+</dd>
+<dt id="TP.tests.mocks.corrupted_binary_data"><code class="name flex">
+<span>def <span class="ident">corrupted_binary_data</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.fixture
+def corrupted_binary_data():
+    &#34;&#34;&#34;Mock: Données binaires corrompues.&#34;&#34;&#34;
+    return b&#39;\xFF\xFF\xFF\xFF&#39; + b&#39;\x00&#39; * 100</code></pre>
+</details>
+<div class="desc"><p>Mock: Données binaires corrompues.</p></div>
+</dd>
+<dt id="TP.tests.mocks.empty_binary_data"><code class="name flex">
+<span>def <span class="ident">empty_binary_data</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.fixture
+def empty_binary_data():
+    &#34;&#34;&#34;Mock: Données binaires vides.&#34;&#34;&#34;
+    return b&#39;&#39;</code></pre>
+</details>
+<div class="desc"><p>Mock: Données binaires vides.</p></div>
+</dd>
+<dt id="TP.tests.mocks.extreme_pointset"><code class="name flex">
+<span>def <span class="ident">extreme_pointset</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.fixture
+def extreme_pointset():
+    &#34;&#34;&#34;Mock: Points avec coordonnées extrêmes.&#34;&#34;&#34;
+    return [
+        (float(&#39;-1e6&#39;), float(&#39;-1e6&#39;)),
+        (float(&#39;1e6&#39;), float(&#39;1e6&#39;)),
+        (0.0, 0.0)
+    ]</code></pre>
+</details>
+<div class="desc"><p>Mock: Points avec coordonnées extrêmes.</p></div>
+</dd>
+<dt id="TP.tests.mocks.flask_app"><code class="name flex">
+<span>def <span class="ident">flask_app</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.fixture
+def flask_app():
+    &#34;&#34;&#34;Application Flask du Triangulator pour les tests.&#34;&#34;&#34;
+    try:
+        from Triangulator.app import app
+    except ImportError:
+        from app import app
+    
+    app.config[&#39;TESTING&#39;] = True
+    return app</code></pre>
+</details>
+<div class="desc"><p>Application Flask du Triangulator pour les tests.</p></div>
+</dd>
+<dt id="TP.tests.mocks.large_pointset"><code class="name flex">
+<span>def <span class="ident">large_pointset</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.fixture
+def large_pointset():
+    &#34;&#34;&#34;Mock fournissant un grand ensemble de points pour tests de performance.&#34;&#34;&#34;
+    points = []
+    for i in range(1000):
+        x = float(i % 100)
+        y = float(i // 100)
+        points.append((x, y))
+    return points</code></pre>
+</details>
+<div class="desc"><p>Mock fournissant un grand ensemble de points pour tests de performance.</p></div>
+</dd>
+<dt id="TP.tests.mocks.large_pointset_1000"><code class="name flex">
+<span>def <span class="ident">large_pointset_1000</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.fixture
+def large_pointset_1000():
+    &#34;&#34;&#34;Mock: 1000 points.&#34;&#34;&#34;
+    import random
+    random.seed(42)
+    points = []
+    for _ in range(1000):
+        x = random.uniform(-1000.0, 1000.0)
+        y = random.uniform(-1000.0, 1000.0)
+        points.append((x, y))
+    return points</code></pre>
+</details>
+<div class="desc"><p>Mock: 1000 points.</p></div>
+</dd>
+<dt id="TP.tests.mocks.mixed_scale_points"><code class="name flex">
+<span>def <span class="ident">mixed_scale_points</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.fixture
+def mixed_scale_points():
+    &#34;&#34;&#34;Mock: Points à différentes échelles.&#34;&#34;&#34;
+    return [
+        (0.0001, 0.0001),
+        (1000.0, 1000.0),
+        (500.0, 500.0)
+    ]</code></pre>
+</details>
+<div class="desc"><p>Mock: Points à différentes échelles.</p></div>
+</dd>
+<dt id="TP.tests.mocks.mock_database"><code class="name flex">
+<span>def <span class="ident">mock_database</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.fixture
+def mock_database():
+    &#34;&#34;&#34;Mock de la base de données.&#34;&#34;&#34;
+    mock = Mock()
+    mock.store.return_value = &#34;test-id-123&#34;
+    mock.retrieve.return_value = (
+        b&#39;\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x80?\x00\x00\x00\x00\x00\x00\x00?\x00\x00\x80?&#39;
+    )
+    return mock</code></pre>
+</details>
+<div class="desc"><p>Mock de la base de données.</p></div>
+</dd>
+<dt id="TP.tests.mocks.mock_pointset_manager"><code class="name flex">
+<span>def <span class="ident">mock_pointset_manager</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.fixture
+def mock_pointset_manager():
+    &#34;&#34;&#34;Mock du PointSetManager.&#34;&#34;&#34;
+    mock = Mock()
+    mock.get_pointset.return_value = [
+        (0.0, 0.0),
+        (1.0, 0.0),
+        (0.5, 1.0)
+    ]
+    return mock</code></pre>
+</details>
+<div class="desc"><p>Mock du PointSetManager.</p></div>
+</dd>
+<dt id="TP.tests.mocks.mock_pointset_manager_unavailable"><code class="name flex">
+<span>def <span class="ident">mock_pointset_manager_unavailable</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.fixture
+def mock_pointset_manager_unavailable():
+    &#34;&#34;&#34;Mock du PointSetManager indisponible.&#34;&#34;&#34;
+    mock = Mock()
+    mock.get_pointset.side_effect = ConnectionError(&#34;Service unavailable&#34;)
+    return mock</code></pre>
+</details>
+<div class="desc"><p>Mock du PointSetManager indisponible.</p></div>
+</dd>
+<dt id="TP.tests.mocks.mock_pointset_manager_with_timeout"><code class="name flex">
+<span>def <span class="ident">mock_pointset_manager_with_timeout</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.fixture
+def mock_pointset_manager_with_timeout():
+    &#34;&#34;&#34;Mock du PointSetManager avec timeout.&#34;&#34;&#34;
+    mock = Mock()
+    mock.get_pointset.side_effect = TimeoutError(&#34;Request timeout&#34;)
+    return mock</code></pre>
+</details>
+<div class="desc"><p>Mock du PointSetManager avec timeout.</p></div>
+</dd>
+<dt id="TP.tests.mocks.negative_coordinates_points"><code class="name flex">
+<span>def <span class="ident">negative_coordinates_points</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.fixture
+def negative_coordinates_points():
+    &#34;&#34;&#34;Mock: Points avec coordonnées négatives.&#34;&#34;&#34;
+    return [
+        (-100.0, -100.0),
+        (-50.0, -50.0),
+        (-75.0, 25.0)
+    ]</code></pre>
+</details>
+<div class="desc"><p>Mock: Points avec coordonnées négatives.</p></div>
+</dd>
+<dt id="TP.tests.mocks.oversized_binary_data"><code class="name flex">
+<span>def <span class="ident">oversized_binary_data</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.fixture
+def oversized_binary_data():
+    &#34;&#34;&#34;Mock: Données binaires volumineuses.&#34;&#34;&#34;
+    return b&#39;\x00\x0c\x42\x6f&#39; + b&#39;\x00&#39; * (50 * 1024 * 1024)</code></pre>
+</details>
+<div class="desc"><p>Mock: Données binaires volumineuses.</p></div>
+</dd>
+<dt id="TP.tests.mocks.sample_points"><code class="name flex">
+<span>def <span class="ident">sample_points</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.fixture
+def sample_points():
+    &#34;&#34;&#34;Mock fournissant un ensemble de points.&#34;&#34;&#34;
+    return [
+        (0.0, 0.0),
+        (1.0, 0.0),
+        (0.5, 1.0)
+    ]</code></pre>
+</details>
+<div class="desc"><p>Mock fournissant un ensemble de points.</p></div>
+</dd>
+<dt id="TP.tests.mocks.square_points"><code class="name flex">
+<span>def <span class="ident">square_points</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.fixture
+def square_points():
+    &#34;&#34;&#34;Mock fournissant 4 points formant un carré.&#34;&#34;&#34;
+    return [
+        (0.0, 0.0),
+        (1.0, 0.0),
+        (1.0, 1.0),
+        (0.0, 1.0)
+    ]</code></pre>
+</details>
+<div class="desc"><p>Mock fournissant 4 points formant un carré.</p></div>
+</dd>
+<dt id="TP.tests.mocks.very_close_points"><code class="name flex">
+<span>def <span class="ident">very_close_points</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.fixture
+def very_close_points():
+    &#34;&#34;&#34;Mock: Points très proches.&#34;&#34;&#34;
+    return [
+        (0.0, 0.0),
+        (1e-8, 1e-8),
+        (2e-8, 0.0)
+    ]</code></pre>
+</details>
+<div class="desc"><p>Mock: Points très proches.</p></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="TP.tests" href="index.html">TP.tests</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="TP.tests.mocks.client" href="#TP.tests.mocks.client">client</a></code></li>
+<li><code><a title="TP.tests.mocks.collinear_points" href="#TP.tests.mocks.collinear_points">collinear_points</a></code></li>
+<li><code><a title="TP.tests.mocks.corrupted_binary_data" href="#TP.tests.mocks.corrupted_binary_data">corrupted_binary_data</a></code></li>
+<li><code><a title="TP.tests.mocks.empty_binary_data" href="#TP.tests.mocks.empty_binary_data">empty_binary_data</a></code></li>
+<li><code><a title="TP.tests.mocks.extreme_pointset" href="#TP.tests.mocks.extreme_pointset">extreme_pointset</a></code></li>
+<li><code><a title="TP.tests.mocks.flask_app" href="#TP.tests.mocks.flask_app">flask_app</a></code></li>
+<li><code><a title="TP.tests.mocks.large_pointset" href="#TP.tests.mocks.large_pointset">large_pointset</a></code></li>
+<li><code><a title="TP.tests.mocks.large_pointset_1000" href="#TP.tests.mocks.large_pointset_1000">large_pointset_1000</a></code></li>
+<li><code><a title="TP.tests.mocks.mixed_scale_points" href="#TP.tests.mocks.mixed_scale_points">mixed_scale_points</a></code></li>
+<li><code><a title="TP.tests.mocks.mock_database" href="#TP.tests.mocks.mock_database">mock_database</a></code></li>
+<li><code><a title="TP.tests.mocks.mock_pointset_manager" href="#TP.tests.mocks.mock_pointset_manager">mock_pointset_manager</a></code></li>
+<li><code><a title="TP.tests.mocks.mock_pointset_manager_unavailable" href="#TP.tests.mocks.mock_pointset_manager_unavailable">mock_pointset_manager_unavailable</a></code></li>
+<li><code><a title="TP.tests.mocks.mock_pointset_manager_with_timeout" href="#TP.tests.mocks.mock_pointset_manager_with_timeout">mock_pointset_manager_with_timeout</a></code></li>
+<li><code><a title="TP.tests.mocks.negative_coordinates_points" href="#TP.tests.mocks.negative_coordinates_points">negative_coordinates_points</a></code></li>
+<li><code><a title="TP.tests.mocks.oversized_binary_data" href="#TP.tests.mocks.oversized_binary_data">oversized_binary_data</a></code></li>
+<li><code><a title="TP.tests.mocks.sample_points" href="#TP.tests.mocks.sample_points">sample_points</a></code></li>
+<li><code><a title="TP.tests.mocks.square_points" href="#TP.tests.mocks.square_points">square_points</a></code></li>
+<li><code><a title="TP.tests.mocks.very_close_points" href="#TP.tests.mocks.very_close_points">very_close_points</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

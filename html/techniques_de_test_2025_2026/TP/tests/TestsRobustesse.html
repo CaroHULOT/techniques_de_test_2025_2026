@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>techniques_de_test_2025_2026.TP.tests.TestsRobustesse API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>techniques_de_test_2025_2026.TP.tests.TestsRobustesse</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness"><code class="flex name class">
+<span>class <span class="ident">TestRobustness</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TestRobustness:
+    &#34;&#34;&#34;Tests de robustesse face aux entrées invalides.&#34;&#34;&#34;
+    
+    def test_truncated_pointset(self, client):
+        &#34;&#34;&#34;Test: PointSet tronqué -&gt; 400.&#34;&#34;&#34;
+        truncated_data = b&#39;\x03\x00\x00\x00\x00\x00&#39;  # Incomplete
+        
+        response = client.post(&#39;/pointset&#39;, data=truncated_data)
+        assert response.status_code in [400, 405]
+    
+    def test_non_float_coordinates(self):
+        &#34;&#34;&#34;Test: Coordonnées non float -&gt; 400.&#34;&#34;&#34;
+        from binary_format import binary_to_pointset
+        
+        invalid_data = b&#39;\x01\x00\x00\x00INVALID!&#39;
+        
+        with pytest.raises((ValueError, struct.error)):
+            binary_to_pointset(invalid_data)
+    
+    def test_unreachable_service(self, client):
+        &#34;&#34;&#34;Test: Service injoignable -&gt; 503.&#34;&#34;&#34;
+        with patch(&#39;triangulator.pointset_manager&#39;) as mock_pm:
+            mock_pm.get_pointset.side_effect = ConnectionError()
+            
+            response = client.get(&#39;/triangulation/test-id&#39;)
+            assert response.status_code == 503
+    
+    def test_empty_result(self, client):
+        &#34;&#34;&#34;Test: Résultat vide -&gt; message clair.&#34;&#34;&#34;
+        mock_pm = Mock()
+        mock_pm.get_pointset.return_value = [(0.0, 0.0), (1.0, 0.0), (2.0, 0.0)]  # Collinear
+        
+        with patch(&#39;triangulator.pointset_manager&#39;, mock_pm):
+            response = client.get(&#39;/triangulation/test-id&#39;)
+            
+            # Peut être 200 avec résultat vide ou 400 avec message
+            assert response.status_code in [200, 400]
+    
+    def test_internal_exception_handling(self, client):
+        &#34;&#34;&#34;Test: Exceptions -&gt; 500.&#34;&#34;&#34;
+        with patch(&#39;triangulator.triangulate&#39;) as mock_tri:
+            mock_tri.side_effect = RuntimeError(&#34;Unexpected error&#34;)
+            
+            response = client.get(&#39;/triangulation/test-id&#39;)
+            assert response.status_code == 500
+    
+    def test_timeout_handling(self, client):
+        &#34;&#34;&#34;Test: Timeout -&gt; 504.&#34;&#34;&#34;
+        with patch(&#39;triangulator.pointset_manager&#39;) as mock_pm:
+            mock_pm.get_pointset.side_effect = TimeoutError()
+            
+            response = client.get(&#39;/triangulation/test-id&#39;)
+            assert response.status_code == 504
+    
+    
+    def test_negative_coordinates_robustness(self):
+        &#34;&#34;&#34;Test: Points avec coordonnées négatives.&#34;&#34;&#34;
+        from triangulator import triangulate
+        
+        points = [
+            (-100.0, -200.0),
+            (-50.0, -100.0),
+            (-75.0, -50.0)
+        ]
+        
+        # pas d&#39; erreur
+        triangles = triangulate(points)
+        assert isinstance(triangles, list)
+    
+    def test_beyond_float_limits(self):
+        &#34;&#34;&#34;Test: Valeurs au-delà des limites float.&#34;&#34;&#34;
+        from triangulator import triangulate
+        
+        # Très grandes valeurs mais encore dans les limites
+        points = [
+            (1e30, 1e30),
+            (1e30 + 1, 1e30),
+            (1e30 + 0.5, 1e30 + 1)
+        ]
+        
+        try:
+            triangles = triangulate(points)
+            assert isinstance(triangles, list)
+        except (ValueError, OverflowError):
+            pass  # rejet si trop grand
+    
+    def test_random_corrupted_data(self):
+        &#34;&#34;&#34;Test: Données aléatoires/corrompues.&#34;&#34;&#34;
+        from binary_format import binary_to_pointset
+        
+        # Générer données aléatoires
+        corrupted = bytes(random.getrandbits(8) for _ in range(20))
+        
+        # Devrait lever une exception mais ne pas crasher
+        with pytest.raises((ValueError, struct.error, AssertionError)):
+            binary_to_pointset(corrupted)
+    
+    def test_pointset_with_single_point(self):
+        &#34;&#34;&#34;Test: PointSet avec un seul point.&#34;&#34;&#34;
+        from triangulator import triangulate
+        
+        points = [(0.0, 0.0)]
+        
+        with pytest.raises(ValueError) as exc_info:
+            triangulate(points)
+        
+        assert &#34;insufficient&#34; in str(exc_info.value).lower() or \
+               &#34;moins&#34; in str(exc_info.value).lower()
+    
+    def test_pointset_with_two_points(self):
+        &#34;&#34;&#34;Test: PointSet avec deux points.&#34;&#34;&#34;
+        from triangulator import triangulate
+        
+        points = [(0.0, 0.0), (1.0, 1.0)]
+        
+        with pytest.raises(ValueError) as exc_info:
+            triangulate(points)
+        
+        assert &#34;insufficient&#34; in str(exc_info.value).lower() or \
+               &#34;moins&#34; in str(exc_info.value).lower()
+    
+    def test_database_connection_failure(self, client):
+        &#34;&#34;&#34;Test: Défaillance  base de données.&#34;&#34;&#34;
+        with patch(&#39;triangulator.pointset_manager&#39;) as mock_pm:
+            mock_pm.get_pointset.side_effect = ConnectionError(&#34;DB connection lost&#34;)
+            
+            response = client.get(&#39;/triangulation/test-id&#39;)
+            assert response.status_code == 503
+    
+    def test_pointset_format_mismatch(self, client):
+        &#34;&#34;&#34;Test: Format PointSet inattendu.&#34;&#34;&#34;
+        mock_pm = Mock()
+        mock_pm.get_pointset.return_value = {&#34;invalid&#34;: &#34;format&#34;}  # Dict au lieu de list
+        
+        with patch(&#39;triangulator.pointset_manager&#39;, mock_pm):
+            response = client.get(&#39;/triangulation/test-id&#39;)
+            assert response.status_code in [400, 500]
+    
+    def test_triangle_with_out_of_range_indices(self):
+        &#34;&#34;&#34;Test: Triangle avec indices hors limites.&#34;&#34;&#34;
+        from binary_format import triangles_to_binary, binary_to_triangles
+        
+        points = [(0.0, 0.0), (1.0, 0.0), (0.5, 1.0)]
+        
+        # indice invalide
+        invalid_triangles = [(0, 1, 999)]
+        
+        with pytest.raises((ValueError, IndexError)):
+            triangles_to_binary(points, invalid_triangles)</code></pre>
+</details>
+<div class="desc"><p>Tests de robustesse face aux entrées invalides.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_beyond_float_limits"><code class="name flex">
+<span>def <span class="ident">test_beyond_float_limits</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_beyond_float_limits(self):
+    &#34;&#34;&#34;Test: Valeurs au-delà des limites float.&#34;&#34;&#34;
+    from triangulator import triangulate
+    
+    # Très grandes valeurs mais encore dans les limites
+    points = [
+        (1e30, 1e30),
+        (1e30 + 1, 1e30),
+        (1e30 + 0.5, 1e30 + 1)
+    ]
+    
+    try:
+        triangles = triangulate(points)
+        assert isinstance(triangles, list)
+    except (ValueError, OverflowError):
+        pass  # rejet si trop grand</code></pre>
+</details>
+<div class="desc"><p>Test: Valeurs au-delà des limites float.</p></div>
+</dd>
+<dt id="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_database_connection_failure"><code class="name flex">
+<span>def <span class="ident">test_database_connection_failure</span></span>(<span>self, client)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_database_connection_failure(self, client):
+    &#34;&#34;&#34;Test: Défaillance  base de données.&#34;&#34;&#34;
+    with patch(&#39;triangulator.pointset_manager&#39;) as mock_pm:
+        mock_pm.get_pointset.side_effect = ConnectionError(&#34;DB connection lost&#34;)
+        
+        response = client.get(&#39;/triangulation/test-id&#39;)
+        assert response.status_code == 503</code></pre>
+</details>
+<div class="desc"><p>Test: Défaillance
+base de données.</p></div>
+</dd>
+<dt id="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_empty_result"><code class="name flex">
+<span>def <span class="ident">test_empty_result</span></span>(<span>self, client)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_empty_result(self, client):
+    &#34;&#34;&#34;Test: Résultat vide -&gt; message clair.&#34;&#34;&#34;
+    mock_pm = Mock()
+    mock_pm.get_pointset.return_value = [(0.0, 0.0), (1.0, 0.0), (2.0, 0.0)]  # Collinear
+    
+    with patch(&#39;triangulator.pointset_manager&#39;, mock_pm):
+        response = client.get(&#39;/triangulation/test-id&#39;)
+        
+        # Peut être 200 avec résultat vide ou 400 avec message
+        assert response.status_code in [200, 400]</code></pre>
+</details>
+<div class="desc"><p>Test: Résultat vide -&gt; message clair.</p></div>
+</dd>
+<dt id="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_internal_exception_handling"><code class="name flex">
+<span>def <span class="ident">test_internal_exception_handling</span></span>(<span>self, client)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_internal_exception_handling(self, client):
+    &#34;&#34;&#34;Test: Exceptions -&gt; 500.&#34;&#34;&#34;
+    with patch(&#39;triangulator.triangulate&#39;) as mock_tri:
+        mock_tri.side_effect = RuntimeError(&#34;Unexpected error&#34;)
+        
+        response = client.get(&#39;/triangulation/test-id&#39;)
+        assert response.status_code == 500</code></pre>
+</details>
+<div class="desc"><p>Test: Exceptions -&gt; 500.</p></div>
+</dd>
+<dt id="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_negative_coordinates_robustness"><code class="name flex">
+<span>def <span class="ident">test_negative_coordinates_robustness</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_negative_coordinates_robustness(self):
+    &#34;&#34;&#34;Test: Points avec coordonnées négatives.&#34;&#34;&#34;
+    from triangulator import triangulate
+    
+    points = [
+        (-100.0, -200.0),
+        (-50.0, -100.0),
+        (-75.0, -50.0)
+    ]
+    
+    # pas d&#39; erreur
+    triangles = triangulate(points)
+    assert isinstance(triangles, list)</code></pre>
+</details>
+<div class="desc"><p>Test: Points avec coordonnées négatives.</p></div>
+</dd>
+<dt id="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_non_float_coordinates"><code class="name flex">
+<span>def <span class="ident">test_non_float_coordinates</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_non_float_coordinates(self):
+    &#34;&#34;&#34;Test: Coordonnées non float -&gt; 400.&#34;&#34;&#34;
+    from binary_format import binary_to_pointset
+    
+    invalid_data = b&#39;\x01\x00\x00\x00INVALID!&#39;
+    
+    with pytest.raises((ValueError, struct.error)):
+        binary_to_pointset(invalid_data)</code></pre>
+</details>
+<div class="desc"><p>Test: Coordonnées non float -&gt; 400.</p></div>
+</dd>
+<dt id="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_pointset_format_mismatch"><code class="name flex">
+<span>def <span class="ident">test_pointset_format_mismatch</span></span>(<span>self, client)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_pointset_format_mismatch(self, client):
+    &#34;&#34;&#34;Test: Format PointSet inattendu.&#34;&#34;&#34;
+    mock_pm = Mock()
+    mock_pm.get_pointset.return_value = {&#34;invalid&#34;: &#34;format&#34;}  # Dict au lieu de list
+    
+    with patch(&#39;triangulator.pointset_manager&#39;, mock_pm):
+        response = client.get(&#39;/triangulation/test-id&#39;)
+        assert response.status_code in [400, 500]</code></pre>
+</details>
+<div class="desc"><p>Test: Format PointSet inattendu.</p></div>
+</dd>
+<dt id="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_pointset_with_single_point"><code class="name flex">
+<span>def <span class="ident">test_pointset_with_single_point</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_pointset_with_single_point(self):
+    &#34;&#34;&#34;Test: PointSet avec un seul point.&#34;&#34;&#34;
+    from triangulator import triangulate
+    
+    points = [(0.0, 0.0)]
+    
+    with pytest.raises(ValueError) as exc_info:
+        triangulate(points)
+    
+    assert &#34;insufficient&#34; in str(exc_info.value).lower() or \
+           &#34;moins&#34; in str(exc_info.value).lower()</code></pre>
+</details>
+<div class="desc"><p>Test: PointSet avec un seul point.</p></div>
+</dd>
+<dt id="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_pointset_with_two_points"><code class="name flex">
+<span>def <span class="ident">test_pointset_with_two_points</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_pointset_with_two_points(self):
+    &#34;&#34;&#34;Test: PointSet avec deux points.&#34;&#34;&#34;
+    from triangulator import triangulate
+    
+    points = [(0.0, 0.0), (1.0, 1.0)]
+    
+    with pytest.raises(ValueError) as exc_info:
+        triangulate(points)
+    
+    assert &#34;insufficient&#34; in str(exc_info.value).lower() or \
+           &#34;moins&#34; in str(exc_info.value).lower()</code></pre>
+</details>
+<div class="desc"><p>Test: PointSet avec deux points.</p></div>
+</dd>
+<dt id="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_random_corrupted_data"><code class="name flex">
+<span>def <span class="ident">test_random_corrupted_data</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_random_corrupted_data(self):
+    &#34;&#34;&#34;Test: Données aléatoires/corrompues.&#34;&#34;&#34;
+    from binary_format import binary_to_pointset
+    
+    # Générer données aléatoires
+    corrupted = bytes(random.getrandbits(8) for _ in range(20))
+    
+    # Devrait lever une exception mais ne pas crasher
+    with pytest.raises((ValueError, struct.error, AssertionError)):
+        binary_to_pointset(corrupted)</code></pre>
+</details>
+<div class="desc"><p>Test: Données aléatoires/corrompues.</p></div>
+</dd>
+<dt id="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_timeout_handling"><code class="name flex">
+<span>def <span class="ident">test_timeout_handling</span></span>(<span>self, client)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_timeout_handling(self, client):
+    &#34;&#34;&#34;Test: Timeout -&gt; 504.&#34;&#34;&#34;
+    with patch(&#39;triangulator.pointset_manager&#39;) as mock_pm:
+        mock_pm.get_pointset.side_effect = TimeoutError()
+        
+        response = client.get(&#39;/triangulation/test-id&#39;)
+        assert response.status_code == 504</code></pre>
+</details>
+<div class="desc"><p>Test: Timeout -&gt; 504.</p></div>
+</dd>
+<dt id="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_triangle_with_out_of_range_indices"><code class="name flex">
+<span>def <span class="ident">test_triangle_with_out_of_range_indices</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_triangle_with_out_of_range_indices(self):
+    &#34;&#34;&#34;Test: Triangle avec indices hors limites.&#34;&#34;&#34;
+    from binary_format import triangles_to_binary, binary_to_triangles
+    
+    points = [(0.0, 0.0), (1.0, 0.0), (0.5, 1.0)]
+    
+    # indice invalide
+    invalid_triangles = [(0, 1, 999)]
+    
+    with pytest.raises((ValueError, IndexError)):
+        triangles_to_binary(points, invalid_triangles)</code></pre>
+</details>
+<div class="desc"><p>Test: Triangle avec indices hors limites.</p></div>
+</dd>
+<dt id="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_truncated_pointset"><code class="name flex">
+<span>def <span class="ident">test_truncated_pointset</span></span>(<span>self, client)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_truncated_pointset(self, client):
+    &#34;&#34;&#34;Test: PointSet tronqué -&gt; 400.&#34;&#34;&#34;
+    truncated_data = b&#39;\x03\x00\x00\x00\x00\x00&#39;  # Incomplete
+    
+    response = client.post(&#39;/pointset&#39;, data=truncated_data)
+    assert response.status_code in [400, 405]</code></pre>
+</details>
+<div class="desc"><p>Test: PointSet tronqué -&gt; 400.</p></div>
+</dd>
+<dt id="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_unreachable_service"><code class="name flex">
+<span>def <span class="ident">test_unreachable_service</span></span>(<span>self, client)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_unreachable_service(self, client):
+    &#34;&#34;&#34;Test: Service injoignable -&gt; 503.&#34;&#34;&#34;
+    with patch(&#39;triangulator.pointset_manager&#39;) as mock_pm:
+        mock_pm.get_pointset.side_effect = ConnectionError()
+        
+        response = client.get(&#39;/triangulation/test-id&#39;)
+        assert response.status_code == 503</code></pre>
+</details>
+<div class="desc"><p>Test: Service injoignable -&gt; 503.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="techniques_de_test_2025_2026.TP.tests" href="index.html">techniques_de_test_2025_2026.TP.tests</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness" href="#techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness">TestRobustness</a></code></h4>
+<ul class="">
+<li><code><a title="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_beyond_float_limits" href="#techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_beyond_float_limits">test_beyond_float_limits</a></code></li>
+<li><code><a title="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_database_connection_failure" href="#techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_database_connection_failure">test_database_connection_failure</a></code></li>
+<li><code><a title="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_empty_result" href="#techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_empty_result">test_empty_result</a></code></li>
+<li><code><a title="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_internal_exception_handling" href="#techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_internal_exception_handling">test_internal_exception_handling</a></code></li>
+<li><code><a title="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_negative_coordinates_robustness" href="#techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_negative_coordinates_robustness">test_negative_coordinates_robustness</a></code></li>
+<li><code><a title="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_non_float_coordinates" href="#techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_non_float_coordinates">test_non_float_coordinates</a></code></li>
+<li><code><a title="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_pointset_format_mismatch" href="#techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_pointset_format_mismatch">test_pointset_format_mismatch</a></code></li>
+<li><code><a title="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_pointset_with_single_point" href="#techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_pointset_with_single_point">test_pointset_with_single_point</a></code></li>
+<li><code><a title="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_pointset_with_two_points" href="#techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_pointset_with_two_points">test_pointset_with_two_points</a></code></li>
+<li><code><a title="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_random_corrupted_data" href="#techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_random_corrupted_data">test_random_corrupted_data</a></code></li>
+<li><code><a title="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_timeout_handling" href="#techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_timeout_handling">test_timeout_handling</a></code></li>
+<li><code><a title="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_triangle_with_out_of_range_indices" href="#techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_triangle_with_out_of_range_indices">test_triangle_with_out_of_range_indices</a></code></li>
+<li><code><a title="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_truncated_pointset" href="#techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_truncated_pointset">test_truncated_pointset</a></code></li>
+<li><code><a title="techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_unreachable_service" href="#techniques_de_test_2025_2026.TP.tests.TestsRobustesse.TestRobustness.test_unreachable_service">test_unreachable_service</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>
